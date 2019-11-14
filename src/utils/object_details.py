@@ -1,5 +1,5 @@
 # from arguments import generator_options
-from get_backgrounds_and_data import read_image_labels, \
+from utils.get_backgrounds_and_data import read_image_labels, \
     fetch_image_gt_paths
 import tqdm
 import numpy as np

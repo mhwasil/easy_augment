@@ -1,5 +1,5 @@
 # from arguments import generator_options
-from visualizer import save_visuals
+from utils.visualizer import save_visuals
 import os
 import cv2
 import csv

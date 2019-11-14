@@ -1,5 +1,5 @@
 # from arguments import generator_options
-from get_backgrounds_and_data import fetch_background_images
+from utils.get_backgrounds_and_data import fetch_background_images
 import numpy as np
 import random
 from scipy.spatial.distance import cdist

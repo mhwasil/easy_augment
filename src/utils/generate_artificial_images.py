@@ -1,8 +1,8 @@
 # from arguments import generator_options
-from object_details import get_scaled_objects
-from generate_augmenter_list import create_augmenter_list
-from saver import make_save_dirs
-from saver import save_data
+from utils.object_details import get_scaled_objects
+from utils.generate_augmenter_list import create_augmenter_list
+from utils.saver import make_save_dirs
+from utils.saver import save_data
 import copy
 import numpy as np
 import tqdm

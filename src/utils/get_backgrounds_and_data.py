@@ -2,7 +2,7 @@
 import os
 import logging
 import cv2
-from populate_src import populate_source
+from utils.populate_src import populate_source
 import numpy as np
 
 
