@@ -1,5 +1,6 @@
-pyqt5
+PyQt5
 opencv-python
+labelme
 tqdm
 joblib
 scipy
