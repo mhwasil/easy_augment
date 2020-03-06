@@ -36,11 +36,11 @@ class MainWindow(QWidget):                           # <===
         """
         self.home_path = str(Path.home())
 
-        self.button1 = QPushButton("Capture", self)
-        self.button1.clicked.connect(self.capture_button)
-        self.button1.resize(150, 20)
-        self.button1.move(275, 50)
-        self.button1.setEnabled(True)
+        self.capture_button = QPushButton("Capture", self)
+        self.capture_button.clicked.connect(self.capture_button_action)
+        self.capture_button.resize(150, 20)
+        self.capture_button.move(275, 50)
+        self.capture_button.setEnabled(True)
 
         self.nameLabel_save_folder = QLabel(self)
         self.nameLabel_save_folder.setText('Save folder path:')
@@ -52,30 +52,30 @@ class MainWindow(QWidget):                           # <===
         self.save_folder.move(300, 100)
         self.save_folder.resize(200, 40)
         self.save_folder.hide()
-        self.button2 = QPushButton("Change", self)
-        self.button2.clicked.connect(self.change_save_folder)
-        self.button2.move(520, 110)
-        self.button2.resize(100, 20)
-        self.button2.hide()
+        self.change_save_dir_button = QPushButton("Change", self)
+        self.change_save_dir_button.clicked.connect(self.change_save_folder)
+        self.change_save_dir_button.move(520, 110)
+        self.change_save_dir_button.resize(100, 20)
+        self.change_save_dir_button.hide()
 
-        self.button3 = QPushButton("Continue", self)
-        self.button3.clicked.connect(self.continue_button)
-        self.button3.resize(150, 20)
-        self.button3.move(175, 200)
-        self.button3.setEnabled(True)
-        self.button3.hide()
-        self.button4 = QPushButton("Back", self)
-        self.button4.clicked.connect(self.back_button)
-        self.button4.resize(150, 20)
-        self.button4.move(375, 200)
-        self.button4.setEnabled(True)
-        self.button4.hide()
+        self.continue_button = QPushButton("Continue", self)
+        self.continue_button.clicked.connect(self.continue_button_action)
+        self.continue_button.resize(150, 20)
+        self.continue_button.move(175, 200)
+        self.continue_button.setEnabled(True)
+        self.continue_button.hide()
+        self.back_button = QPushButton("Back", self)
+        self.back_button.clicked.connect(self.back_button_action)
+        self.back_button.resize(150, 20)
+        self.back_button.move(375, 200)
+        self.back_button.setEnabled(True)
+        self.back_button.hide()
 
-        self.button5 = QPushButton("Have Annotations", self)
-        self.button5.clicked.connect(self.annotations_button)
-        self.button5.resize(150, 20)
-        self.button5.move(275, 150)
-        self.button5.setEnabled(True)
+        self.annotations_button = QPushButton("Have Annotations", self)
+        self.annotations_button.clicked.connect(self.annotations_button_action)
+        self.annotations_button.resize(150, 20)
+        self.annotations_button.move(275, 150)
+        self.annotations_button.setEnabled(True)
 
         self.source_folder_label = QLabel(self)
         self.source_folder_label.setText('Source folder path:')
@@ -87,11 +87,11 @@ class MainWindow(QWidget):                           # <===
         self.source_folder.move(300, 200)
         self.source_folder.resize(200, 40)
         self.source_folder.hide()
-        self.button6 = QPushButton("Change", self)
-        self.button6.clicked.connect(self.change_source_folder)
-        self.button6.move(520, 210)
-        self.button6.resize(100, 20)
-        self.button6.hide()
+        self.change_src_dir_button = QPushButton("Change", self)
+        self.change_src_dir_button.clicked.connect(self.change_source_folder)
+        self.change_src_dir_button.move(520, 210)
+        self.change_src_dir_button.resize(100, 20)
+        self.change_src_dir_button.hide()
 
         self.nameLabel_save_folder_2 = QLabel(self)
         self.nameLabel_save_folder_2.setText('Save folder path:')
@@ -119,20 +119,20 @@ class MainWindow(QWidget):                           # <===
         self.labels_file_path.move(300, 300)
         self.labels_file_path.resize(200, 40)
         self.labels_file_path.hide()
-        self.button10 = QPushButton("Change", self)
-        self.button10.clicked.connect(self.change_labels_file_path)
-        self.button10.move(520, 310)
-        self.button10.resize(100, 20)
-        self.button10.hide()
+        self.capture_button0 = QPushButton("Change", self)
+        self.capture_button0.clicked.connect(self.change_labels_file_path)
+        self.capture_button0.move(520, 310)
+        self.capture_button0.resize(100, 20)
+        self.capture_button0.hide()
 
         self.button7 = QPushButton("Continue", self)
-        self.button7.clicked.connect(self.continue_button_annotations)
+        #self.button7.clicked.connect(self.continue_button_action_annotations)
         self.button7.resize(150, 20)
         self.button7.move(175, 350)
         self.button7.setEnabled(True)
         self.button7.hide()
         self.button8 = QPushButton("Back", self)
-        self.button8.clicked.connect(self.back_button)
+        self.button8.clicked.connect(self.back_button_action)
         self.button8.resize(150, 20)
         self.button8.move(375, 350)
         self.button8.setEnabled(True)
@@ -184,7 +184,7 @@ class MainWindow(QWidget):                           # <===
         filepath = QFileDialog.getOpenFileNames(filter='*.txt')
         self.labels_file_path.setText(filepath[0][0])
 
-    def capture_button(self):
+    def capture_button_action(self):
         """Short summary.
 
         Returns
@@ -195,15 +195,15 @@ class MainWindow(QWidget):                           # <===
         """
         self.nameLabel_save_folder.show()
         self.save_folder.show()
-        self.button2.show()
-        self.button3.show()
-        self.button4.show()
-        self.button5.hide()
+        self.change_save_dir_button.show()
+        self.continue_button.show()
+        self.back_button.show()
+        self.annotations_button.hide()
 
-        self.button1.setEnabled(False)
-        self.button5.setEnabled(False)
+        self.capture_button.setEnabled(False)
+        self.annotations_button.setEnabled(False)
 
-    def annotations_button(self):
+    def annotations_button_action(self):
         """Short summary.
 
         Returns
@@ -218,16 +218,16 @@ class MainWindow(QWidget):                           # <===
         self.save_folder_2.show()
         self.source_folder.show()
         self.labels_file_path.show()
-        self.button6.show()
+        self.change_src_dir_button.show()
         self.button7.show()
         self.button8.show()
         self.button9.show()
-        self.button10.show()
+        self.capture_button0.show()
 
-        self.button1.setEnabled(False)
-        self.button5.setEnabled(False)
+        self.capture_button.setEnabled(False)
+        self.annotations_button.setEnabled(False)
 
-    def back_button(self):
+    def back_button_action(self):
         """Short summary.
 
         Returns
@@ -244,21 +244,21 @@ class MainWindow(QWidget):                           # <===
         self.save_folder.hide()
         self.source_folder.hide()
         self.labels_file_path.hide()
-        self.button2.hide()
-        self.button3.hide()
-        self.button4.hide()
-        self.button6.hide()
+        self.change_save_dir_button.hide()
+        self.continue_button.hide()
+        self.back_button.hide()
+        self.change_src_dir_button.hide()
         self.button9.hide()
-        self.button10.hide()
+        self.capture_button0.hide()
         self.button7.hide()
         self.button8.hide()
 
-        self.button5.show()
+        self.annotations_button.show()
 
-        self.button1.setEnabled(True)
-        self.button5.setEnabled(True)
+        self.capture_button.setEnabled(True)
+        self.annotations_button.setEnabled(True)
 
-    def continue_button(self):
+    def continue_button_action(self):
         """Short summary.
 
         Returns
